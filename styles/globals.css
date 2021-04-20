@@ -1,9 +1,10 @@
+@import '../node_modules/normalize.css/normalize.css';
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 a {
@@ -13,4 +14,15 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+#__next {
+  min-height: calc(100vw-12px);
+  min-width: calc(100vw-12px);
+  margin: auto;
+}
+
+:root {
+  --padding: 0.5rem;
+  --image: 45rem;
 }

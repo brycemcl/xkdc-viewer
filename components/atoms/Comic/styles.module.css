@@ -1,0 +1,15 @@
+.headings {
+  margin: 0;
+}
+.h2 {
+  padding-bottom: var(--padding);
+  padding-top: var(--padding);
+}
+.container {
+  padding: var(--padding);
+  display: flex;
+  flex-direction: column;
+  border-top: 0.25rem solid #bbb;
+  margin-bottom: var(--padding);
+  width: min(95vw, var(--image));
+}
