@@ -11,5 +11,5 @@
   flex-direction: column;
   border-top: 0.25rem solid #bbb;
   margin-bottom: var(--padding);
-  width: min(95vw, var(--image));
+  width: 100%;
 }

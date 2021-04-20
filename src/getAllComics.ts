@@ -7,6 +7,7 @@ const filePath = './public'
 const fileName = `${filePath}/comics.json`
 const workersPool = 5
 const getAllComics = () => {
+  console.log('Started getting comics')
   return new Promise(async (resolve) => {
     let waiting: boolean | number = true
     const getNewestComic = async () =>
@@ -43,7 +44,9 @@ const getAllComics = () => {
               await fs.writeFile(photoName, photo)
               await fs.writeFile(fileName, JSON.stringify(comics))
             } catch (error) {
-              console.log('\n', 'error: ', num)
+              if (![404, 1608, 1663].includes(num)) {
+                console.error('\n', 'error: ', num)
+              }
             } finally {
               workers--
               if (typeof waiting === 'number') {
@@ -52,6 +55,7 @@ const getAllComics = () => {
               clearInterval(loop)
               if (!waiting) {
                 resolve(true)
+                console.log('Finished getting comics')
               }
             }
           }

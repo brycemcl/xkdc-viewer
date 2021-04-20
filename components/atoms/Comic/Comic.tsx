@@ -1,6 +1,5 @@
 import 'normalize.css'
 import styles from './styles.module.css'
-// import Image from 'next/image'
 import { formatDistance } from 'date-fns'
 const component = ({
   year,
