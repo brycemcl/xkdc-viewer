@@ -17,9 +17,9 @@ a {
 }
 
 #__next {
-  min-height: calc(100vw-12px);
-  min-width: calc(100vw-12px);
+  width: calc(100vw-12px);
   margin: auto;
+  padding: 0;
 }
 
 :root {

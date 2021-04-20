@@ -3,7 +3,6 @@ import { promises as fs } from 'fs'
 import Comics from '../components/molecules/Comics'
 import getAllComics from '../src/getAllComics'
 export async function getStaticProps(context) {
-  // import('../src/getAllComics')
   await getAllComics()
   const comics = JSON.parse(
     await fs.readFile(process.cwd() + '/public/comics.json', 'utf-8'),
@@ -17,7 +16,6 @@ const page = ({ comics }) => {
     <div
       style={{
         display: 'flex',
-        width: '100%',
         justifyContent: 'center',
       }}>
       <Head>
