@@ -26,7 +26,7 @@ const component = ({ comics = [] }) => {
   const [fullList, setFullList] = useState(false)
   useEffect(() => {
     if (window.requestIdleCallback) {
-      window.requestIdleCallback(() => setFullList(true))
+      window.requestIdleCallback(() => setFullList(true), { timeout: 3000 })
     } else {
       setTimeout(() => setFullList(true), 0)
     }
