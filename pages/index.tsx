@@ -4,14 +4,16 @@ import Comics from '../components/molecules/Comics'
 import getAllComics from '../src/getAllComics'
 export async function getStaticProps(context) {
   await getAllComics()
-  const comics = JSON.parse(
+  const comicsArrayOfStrings = JSON.parse(
     await fs.readFile(process.cwd() + '/public/comics.json', 'utf-8'),
   )
     .filter((comic) => typeof comic === 'object')
-    .map((comic) => {
-      return { ...comic, key: JSON.stringify(comic) }
-    })
+    .map((comic) => JSON.stringify(comic))
     .reverse()
+  // deduplicate comics from api
+  const comics = [...new Set(comicsArrayOfStrings)].map((comic: string) => {
+    return { ...JSON.parse(comic), key: comic }
+  })
   return {
     props: { comics },
   }
