@@ -24,35 +24,35 @@ const getAllComics = () => {
         }
         const loop = setInterval(async () => {
           if (workers < workersPool) {
+            clearInterval(loop)
             workers++
             const url = `https://xkcd.com/${num}/info.0.json`
             try {
-              const data = await axios.get(url).then(({ data }) => data)
-              const photo = await axios
-                .request({
-                  method: 'GET',
-                  responseType: 'arraybuffer',
-                  url: data.img,
-                })
-                .then(({ data }) => data)
-              data.img = new URL(data.img).pathname
-              const { height, width } = sizeOf(photo)
-              data.height = height
-              data.width = width
-              comics[num - 1] = data
-              const photoName = filePath + data.img
-              await fs.writeFile(photoName, photo)
-              await fs.writeFile(fileName, JSON.stringify(comics))
-            } catch (error) {
-              if (![404, 1608, 1663].includes(num)) {
-                console.error('\n', 'error: ', num)
+              if (!comicsThatDontExist.includes(num)) {
+                const data = await axios.get(url).then(({ data }) => data)
+                const photo = await axios
+                  .request({
+                    method: 'GET',
+                    responseType: 'arraybuffer',
+                    url: data.img,
+                  })
+                  .then(({ data }) => data)
+                data.img = new URL(data.img).pathname
+                const { height, width } = sizeOf(photo)
+                data.height = height
+                data.width = width
+                comics[num - 1] = data
+                const photoName = filePath + data.img
+                await fs.writeFile(photoName, photo)
+                await fs.writeFile(fileName, JSON.stringify(comics))
               }
+            } catch (error) {
+              console.error('\n', 'error: ', num)
             } finally {
               workers--
               if (typeof waiting === 'number') {
                 waiting--
               }
-              clearInterval(loop)
               if (!waiting) {
                 resolve(true)
                 console.log('Finished getting comics')
@@ -74,6 +74,7 @@ const getAllComics = () => {
     if (!fss.existsSync(filePath + '/comics')) {
       fss.mkdirSync(filePath + '/comics')
     }
+    const comicsThatDontExist = [404, 1608, 1663]
     comics.forEach((_, index) => {
       if (oldComics[index] && oldComics[index] !== index + 1) {
         comics[index] = oldComics[index]
