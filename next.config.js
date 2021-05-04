@@ -107,5 +107,6 @@ module.exports = withPWA({
   pwa: {
     dest: 'public',
     runtimeCaching: caches,
+    publicExcludes: ['!comics/**/*'],
   },
 })
