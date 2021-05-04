@@ -24,9 +24,10 @@ const component = ({
           }}>
           <h2 className={styles.headings}>Number: #{num}</h2>
           <p className={styles.headings}>
-            {formatDistance(new Date(year, month - 1, day), new Date(), {
-              addSuffix: true,
-            })}
+            {typeof window !== 'undefined' &&
+              formatDistance(new Date(year, month - 1, day), new Date(), {
+                addSuffix: true,
+              })}
           </p>
         </div>
         <h3 className={`${styles.headings} ${styles.h2}`}>{title}</h3>
