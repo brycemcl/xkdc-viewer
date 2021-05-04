@@ -14,6 +14,9 @@ export async function getStaticProps(context) {
   const comics = [...new Set(comicsArrayOfStrings)].map((comic: string) => {
     return { ...JSON.parse(comic), key: comic }
   })
+  comics
+    .filter((comic) => comic.img.includes('%3F%3F%3F.png'))
+    .forEach((comic) => (comic.img = '/comics/white.png'))
   return {
     props: { comics },
   }
@@ -32,6 +35,8 @@ const page = ({ comics }) => {
         <meta name='keywords' content='xkcd, comics' />
         <meta name='author' content='Bryce McLachlan' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+        <link rel='manifest' href='manifest.json'></link>
+        <meta name='theme-color' content='#ffffff' />
       </Head>
       <div
         style={{
