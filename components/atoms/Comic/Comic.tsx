@@ -11,6 +11,7 @@ const component = ({
   title,
   height,
   width,
+  index,
 }) => {
   return (
     <>
@@ -48,7 +49,8 @@ const component = ({
               bottom: 0,
               right: 0,
             }}
-            loading='lazy'
+            //eager load first 2 images
+            loading={index >= 2 ? 'lazy' : 'eager'}
           />
         </div>
       </div>

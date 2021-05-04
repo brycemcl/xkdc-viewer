@@ -44,7 +44,7 @@ const page = ({ comics }) => {
                 src={'/xkcd.png'}
                 alt={'Original xkcd'}
                 height={83}
-                width={'185'}
+                width={185}
               />
               <h1 style={{ alignSelf: 'flex-end', margin: 0 }}>
                 An infinite scroll xkcd comics viewer

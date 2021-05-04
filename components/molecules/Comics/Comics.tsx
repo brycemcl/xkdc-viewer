@@ -11,7 +11,7 @@ const component = ({ comics = [] }) => {
   }, [])
   const comicsChildren = comics
     .slice(0, ref.current ? Infinity : 10)
-    .map((comic) => <Comic {...comic} />)
+    .map((comic, index) => <Comic key={comic.num} {...comic} index={index} />)
   return (
     <div ref={ref} className={styles.container}>
       {comicsChildren}
