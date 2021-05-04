@@ -107,6 +107,14 @@ module.exports = withPWA({
   pwa: {
     dest: 'public',
     runtimeCaching: caches,
-    publicExcludes: ['!comics/**/*'],
+    publicExcludes: [
+      '!android/**/*',
+      '!chrome/**/*',
+      '!firefox/**/*',
+      '!msteams/**/*',
+      '!windows/**/*',
+      '!windows10/**/*',
+      '!comics/**/*',
+    ],
   },
 })
