@@ -1,0 +1,36 @@
+{
+  "packageId": "me.brycemclachlan.xkcd.twa",
+  "host": "xkcd.brycemclachlan.me",
+  "name": "xkdc Viewer",
+  "launcherName": "xkdc",
+  "display": "standalone",
+  "themeColor": "#FFFFFF",
+  "navigationColor": "#000000",
+  "navigationColorDark": "#000000",
+  "navigationDividerColor": "#000000",
+  "navigationDividerColorDark": "#000000",
+  "backgroundColor": "#FFFFFF",
+  "enableNotifications": true,
+  "startUrl": "/",
+  "iconUrl": "https://xkcd.brycemclachlan.me/windows10/SplashScreen.scale-400.png",
+  "splashScreenFadeOutDuration": 300,
+  "signingKey": {
+    "path": "/workspace/xkdc-viewer/app/android.keystore",
+    "alias": "android"
+  },
+  "appVersionName": "1",
+  "appVersionCode": 1,
+  "shortcuts": [],
+  "generatorApp": "bubblewrap-cli",
+  "webManifestUrl": "https://xkcd.brycemclachlan.me/manifest.json",
+  "fallbackType": "customtabs",
+  "features": {},
+  "alphaDependencies": {
+    "enabled": false
+  },
+  "enableSiteSettingsShortcut": true,
+  "isChromeOSOnly": false,
+  "orientation": "default",
+  "fingerprints": [],
+  "appVersion": "1"
+}

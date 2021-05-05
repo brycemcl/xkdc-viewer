@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "me.brycemclachlan.xkcd.twa",
+      "sha256_cert_fingerprints": [
+        "11:8B:5C:5C:80:EE:59:C7:6D:E8:D6:4B:AF:10:16:27:DD:F4:94:8A:2F:B9:17:30:15:AB:11:F6:4C:AE:07:E6"
+      ]
+    }
+  }
+]
